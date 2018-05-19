@@ -1,4 +1,4 @@
-var Media = [{
+var SabinesMedia = [{
         title: "Harry Potter and the Philosopher's Stone",
         type: "Book",
         author: "Joanne K. Rowling",
@@ -122,23 +122,26 @@ var Media = [{
 
 $(document).ready(function() {
 
-    for (i = 0; i < Media.length; i++) {
-        $(".card-img").eq(i).append('<img src="' + Media[i].image + '">');
-        $(".card-title").eq(i).append(Media[i].title);
-        $(".card-author").eq(i).append(Media[i].author);
-        $(".card-publisher").eq(i).append(Media[i].publisher);
-        $(".media-type").eq(i).append(Media[i].type);
-        $(".genre").eq(i).append(Media[i].genre);
-        $(".text-success").eq(i).append(Media[i].rating);
-    }
+    for (i = 0; i < SabinesMedia.length; i++) {
+        $(".card-img").eq(i).append('<img src="' + SabinesMedia[i].image + '">');
+        $(".card-title").eq(i).append(SabinesMedia[i].title);
+        $(".card-author").eq(i).append(SabinesMedia[i].author);
+        $(".card-publisher").eq(i).append(SabinesMedia[i].publisher);
+        $(".media-type").eq(i).append(SabinesMedia[i].type);
+        $(".genre").eq(i).append(SabinesMedia[i].genre);
+        $(".text-success").eq(i).append(SabinesMedia[i].rating);
+    };
 
-    $("form").submit(function() {
-        $("#new-title").val().console.log();
 
-        // $(".row").append('<div class="col-lg-4 col-md-6 col-sm-12 mb-4">' + newTitle + '</div>');
-
+    $("form").on("submit", function(e) {
+        e.preventDefault();
+        var newType = $("#new-type").val()
+        var newGenre = $("#new-genre").val()
+        var newTitle = $("#new-title").val()
+        var newAuthor = $("#new-author").val()
+        var newPublisher = $("#new-publisher").val()
+      $("#newItem").append('<div class="col-lg-4 col-md-6 col-sm-12 mb-4"><div class="card-container"><div class="card-body"><span class="media-type">' + newType + '</span> / <span class="genre">' + newGenre + '</span><h4 class="card-title">' + newTitle + '</h4><p class="card-author">' + newAuthor + '</p><p class="card-publisher"><small>' + newPublisher + '</small></p></div><div class="card-footer"></div></div></div>');
     });
-
 
 
 });
